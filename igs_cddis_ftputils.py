@@ -14,6 +14,11 @@ from tqdm import tqdm
 
 # inputa
 
+def cddis_ftp_login():
+    pass
+
+
+
 def igs_cddis_single(year: int, doy: int, station: str, ftype: str, version: int, email: str, dest_folder: str):
     """Script to automate downloading IGS Site data from CDDIS server.
         Arguments-
