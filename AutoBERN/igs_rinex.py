@@ -8,7 +8,7 @@ import os
 import re
 from ftplib import FTP_TLS, FTP
 from tqdm import tqdm
-from scripts.utils import login_cddis, login_garner
+from AutoBERN.utils import login_cddis, login_garner
 
 # RINEX Files - daily and station dependent
 #- ftp://garner.ucsd.edu/pub/rinex
@@ -38,7 +38,7 @@ def bulk_download(start_year, start_doy, end_year, end_doy, server='cddis'):
 
 
 
-def single_download():
+def single_download(ftps):
     pass
 
 

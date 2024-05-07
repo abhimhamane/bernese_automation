@@ -9,7 +9,7 @@ import re
 import time
 from ftplib import FTP_TLS
 from tqdm import tqdm
-from scripts.utils import dir_exists, login_aiub, download
+from AutoBERN.utils import dir_exists, login_aiub, download
 
 # AIUB FTP
 #- CRD, VEL, FIX, PSD from ../BSWUSER52/STA
