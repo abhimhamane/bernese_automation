@@ -1,0 +1,9 @@
+ftplib
+tqdm
+gpsdatetime
+pathlib
+os
+sys
+re
+beautifulsoup4
+requests
