@@ -17,6 +17,15 @@ from AutoBERN.utils import login_cddis, login_sopac, download
 
 
 def find_station(fileslist, stn_code):
+    """_summary_
+
+    Args:
+        fileslist (_type_): _description_
+        stn_code (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
 
     try:
         # version 2 file
@@ -31,6 +40,18 @@ def find_station(fileslist, stn_code):
 
 
 def sopac_rinex(download_dir, session, station, year, doy):
+    """_summary_
+
+    Args:
+        download_dir (_type_): _description_
+        session (_type_): _description_
+        station (_type_): _description_
+        year (_type_): _description_
+        doy (_type_): _description_
+
+    Raises:
+        ValueError: _description_
+    """
     FTP_ROOT = '/pub/rinex'
     doy = str(doy).zfill(3)
     FILE_FTP_DIR = f'{FTP_ROOT}/{year}/{doy}'
@@ -50,6 +71,20 @@ def sopac_rinex(download_dir, session, station, year, doy):
     
 
 def sopac_bulk_download(download_dir, station, start_year, start_doy, end_year, end_doy):
+    """_summary_
+
+    Args:
+        download_dir (_type_): _description_
+        station (_type_): _description_
+        start_year (_type_): _description_
+        start_doy (_type_): _description_
+        end_year (_type_): _description_
+        end_doy (_type_): _description_
+
+    Raises:
+        ValueError: _description_
+    """
+
     sopac = login_sopac()
 
     if start_year == end_year:
@@ -73,7 +108,6 @@ def sopac_bulk_download(download_dir, station, start_year, start_doy, end_year, 
                         sopac_rinex(download_dir=download_dir, session=sopac, station=station, year=start_year, doy=_doy)
                     except ValueError as e:
                         print(f"File Not Found - {station} data for {start_year} and day {_doy} - skipping!")
-
 
             if yr > start_year and yr < end_year:
                 doys = np.arange(1, 366+1, 1)

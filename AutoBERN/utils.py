@@ -29,9 +29,8 @@ def login_cddis(username='', password=''):
         print(ftps.welcome)
         return ftps
 
-
     except Exception as e:
-        print("Error:", e)  # Catch-all for other issues
+        print("Error:", e)  # Catch-all for issues
     
     
 def login_sopac(username='anonymous', password='random@gmail.com'):
@@ -101,6 +100,14 @@ def get_hash():
 
 
 def dir_exists(directory_path):
+    """_summary_
+
+    Args:
+        directory_path (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
 
     path = Path(directory_path)
     if path.is_dir():
@@ -111,6 +118,14 @@ def dir_exists(directory_path):
         return False
 
 def download(session, fname, ftp_dir, download_dir):
+    """_summary_
+
+    Args:
+        session (_type_): _description_
+        fname (_type_): _description_
+        ftp_dir (_type_): _description_
+        download_dir (_type_): _description_
+    """
     try:
         print(f"FTP Dir: {session.pwd()}, Local Dir: {os.getcwd()}")
 
