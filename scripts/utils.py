@@ -110,6 +110,12 @@ def dir_exists(directory_path):
         print(f"The directory - {directory_path} does not exist")
         return False
 
-def file_download(session, fname, ftp_dir, download_dir):
+def download(session, fname, ftp_dir, download_dir):
+    try:
+        print(f"FTP Dir: {session.pwd()}, Local Dir: {os.getcwd()}")
 
-    pass
+        session.retrbinary("RETR " + fname, open(os.path.join(download_dir, fname), 'wb').write)
+
+        return(f'{os.path.join(download_dir, fname)}')
+    except Exception as e:
+        print(f"Error occured, {e}")
