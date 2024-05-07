@@ -34,7 +34,7 @@ def login_cddis(username='', password=''):
         print("Error:", e)  # Catch-all for other issues
     
     
-def login_garner(username='anonymous', password='random@gmail.com'):
+def login_sopac(username='anonymous', password='random@gmail.com'):
     """_summary_
 
     Args:
