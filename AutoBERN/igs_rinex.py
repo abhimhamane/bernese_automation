@@ -41,8 +41,5 @@ def bulk_download(start_year, start_doy, end_year, end_doy, server='cddis'):
 def single_download():
     pass
 
-def multiple_download():
-    pass
-
 
 
