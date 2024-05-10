@@ -10,6 +10,11 @@ from ftplib import FTP_TLS, FTP
 from tqdm import tqdm
 from pathlib import Path
 
+
+def DDMMYYYY2DOY(day, month, year):
+    raise NotImplementedError
+
+
 def login_cddis(username='', password=''):
     """_summary_
 

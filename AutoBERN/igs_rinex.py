@@ -70,7 +70,7 @@ def sopac_rinex(download_dir, session, station, year, doy):
         raise ValueError(f"Station code - {station} data for {year} and day {doy} Not Found")
     
 
-def sopac_bulk_download(download_dir, station, start_year, start_doy, end_year, end_doy):
+def sopac_bulk_rinex(download_dir, station, start_year, start_doy, end_year, end_doy):
     """_summary_
 
     Args:
@@ -126,4 +126,8 @@ def sopac_bulk_download(download_dir, station, start_year, start_doy, end_year, 
                         print(f"File Not Found - {station} data for {start_year} and day {_doy} - skipping!")
 
 
+def cddis_rinex(download_dir, session, station, year, doy):
+    raise NotImplementedError
 
+def cddis_bulk(download_dir, station, start_year, start_doy, end_year, end_doy):
+    raise NotImplementedError

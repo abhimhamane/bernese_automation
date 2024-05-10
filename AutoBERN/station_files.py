@@ -27,6 +27,7 @@ def find_files(flist, extn):
     return req_files
 
 
+
 def crd(ftps, opt_dir: str):
 
     FTP_DIR = '/BSWUSER52/STA'
@@ -49,8 +50,8 @@ def crd(ftps, opt_dir: str):
     else:
         raise ValueError("Download Folder does not exists")
     
-     
 
+     
 def vel(ftps, opt_dir):
     FTP_DIR = '/BSWUSER52/STA'
 
@@ -71,6 +72,8 @@ def vel(ftps, opt_dir):
         download(session=ftps, fname=fname, ftp_dir=FTP_DIR, download_dir=opt_dir)
     else:
         raise ValueError("Download Folder does not exists")
+
+
 
 def fix(ftps, opt_dir):
     FTP_DIR = '/BSWUSER52/STA'
@@ -93,6 +96,8 @@ def fix(ftps, opt_dir):
     else:
         raise ValueError("Download Folder does not exists")
 
+
+
 def psd(ftps, opt_dir):
     FTP_DIR = '/BSWUSER52/STA'
 
@@ -113,6 +118,8 @@ def psd(ftps, opt_dir):
         download(session=ftps, fname=fname, ftp_dir=FTP_DIR, download_dir=opt_dir)
     else:
         raise ValueError("Download Folder does not exists")
+
+
 
 def sat(ftps, opt_dir):
     FTP_DIR = '/BSWUSER52/GEN'
