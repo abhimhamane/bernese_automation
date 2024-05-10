@@ -126,8 +126,46 @@ def sopac_bulk_rinex(download_dir, station, start_year, start_doy, end_year, end
                         print(f"File Not Found - {station} data for {start_year} and day {_doy} - skipping!")
 
 
-def cddis_rinex(download_dir, session, station, year, doy):
+def cddis_daily_obs(download_dir, session, station, year, doy):
+    FTP_ROOT = '/gnss/data/daily'
+    doy = str(doy).zfill(3)
+    ftype = f"{str(year)[2:]}o"
+    FILE_FTP_DIR = f'{FTP_ROOT}/{year}/{doy}/{ftype}'
+    
+    session.cwd(FILE_FTP_DIR)
+    all_stations = session.nlst()
+    datafiles = find_station(all_stations, stn_code=station)
+
+    if len(datafiles) > 0:
+        try:
+            download(session=session, fname=datafiles[0], ftp_dir=FILE_FTP_DIR, download_dir=download_dir)
+        except Exception as e:
+            print(e)
+
+    elif len(datafiles) == 0:
+        raise ValueError(f"Station code - {station} data for {year} and day {doy} Not Found")
+
+
+
+def cddis_gps_nav(download_dir, session, station, year, doy):
+    raise NotImplementedError
+
+def cddis_glonass_nav():
+    raise NotImplementedError
+
+def cddis_hatanaka_obs():
+    raise NotImplementedError
+
+def cddis_glonass():
     raise NotImplementedError
 
 def cddis_bulk(download_dir, station, start_year, start_doy, end_year, end_doy):
+    raise NotImplementedError
+
+def rinex_download():
+    # try cddis - if available end
+        # if not available
+            # try sopac - if available end
+            # else flag the station and date
+
     raise NotImplementedError
